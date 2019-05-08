@@ -2,7 +2,6 @@
 
 # Import Python library
 from nornir import InitNornir
-from nornir.plugins.functions.text import print_result
 from nornir.plugins.tasks.networking import netmiko_send_command
 
 # Main function
