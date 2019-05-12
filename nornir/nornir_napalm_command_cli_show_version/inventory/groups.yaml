@@ -1,0 +1,4 @@
+---
+dev_group_01:
+    data:
+        type: network_device
