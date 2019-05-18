@@ -14,8 +14,8 @@ Here a couple of scripts using robot framework. I focused on the CLI use and the
   * It is hard to see the link between the code and the keywords
 - Very few examples using SSH
   * we find the same example on the Internet; the one of SSHLibrary
-  * on the Internet most of them are for Web applications
-- "CryptographyDeprecationWarning" messages on a correct test because "cryptography" library is not including a fixe requested 5 months ago; that gives the impression of a deprecated piece of software
+  * on the Internet most of the examples are for Web applications
+- I got "CryptographyDeprecationWarning" messages on a correct test because "cryptography" library is not including a fixe requested 5 months ago; that gives the impression of a deprecated piece of software
 - RENAT library has issues:
   * RENAT installation is unclear, no pip install and "docker pull bachng/renat:latest" gives the following error message: "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?" even though docker deamon is running
   * RENAT is designed for Python 2.7
