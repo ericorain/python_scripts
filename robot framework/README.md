@@ -1,11 +1,13 @@
 # robot framework tests
 
-Here a couple of scripts using robot framework. I focused on the CLI use of this automation testing tool. First impression is rather bad.
+Here a couple of scripts using robot framework. I focused on the CLI use and the network device automation use of this automation testing tool. The first impression is rather bad.
 
 What I like:
 + Cisco support thanks to pyATS library... but there are very little documentation on the official site and no way to send a command clearly explained
-+ RENAT is a tool for Robot framework that suport Cisco and IOS devices
++ RENAT is a tool for Robot framework that suport Cisco and IOS devices.
+Here a "simple scenario" according to the online documentation:
 
+[[https://bachng2017.github.io/RENAT/doc/renat_sample.png]]
 
 
 What I do not like with robot framework:
