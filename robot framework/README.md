@@ -7,8 +7,8 @@ What I like:
 + RENAT is a tool for Robot framework that suport Cisco and IOS devices.
 Here a "simple scenario" according to the online documentation:
 
-[[https://bachng2017.github.io/RENAT/doc/renat_sample.png]]
 ![image](https://bachng2017.github.io/RENAT/doc/renat_sample.png)
+Easy?
 
 What I do not like with robot framework:
 - I have to learn a new DSL (again another one...)
@@ -18,7 +18,7 @@ What I do not like with robot framework:
   * we find the same example on the Internet; the one of SSHLibrary
   * on the Internet most of them are for Web applications
 - "CryptographyDeprecationWarning" messages on a correct test because "cryptography" library is not including a fixe requested 5 months ago; that gives the impression of a deprecated piece of software
-- 
+- RENAT installation is unclear, no pip install
 
 
 
