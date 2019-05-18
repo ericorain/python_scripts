@@ -4,17 +4,14 @@ Here a couple of scripts using robot framework. I focused on the CLI use and the
 
 
 **What I like**:
-```diff
-
 + It is possible to the command on a Linux system and testing the answer
 + Cisco support thanks to pyATS library
   * ... but there are very little documentation on the official site and there is no way to send a command since there is no clearly explanation
 + RENAT is a tool for Robot framework that suports Cisco and IOS devices.
   * That should be nice but I was unable to install it (see below).
-```
+
 
 **What I do not like with robot framework**:
-```diff
 - I have to learn a new DSL (again another one...)
   * This one is complicated
   * It is hard to see the link between the code and the keywords
@@ -28,7 +25,6 @@ Here a couple of scripts using robot framework. I focused on the CLI use and the
     * It is unclear, there is no pip install and "docker pull bachng/renat:latest" gives the following error message: "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?" even though docker deamon is running
   * RENAT is designed for Python 2.7
   * RENAT "simple scenario" according to the online documentation:
-```
 ![image](https://bachng2017.github.io/RENAT/doc/renat_sample.png)
   Easy? Clearly not.
 
