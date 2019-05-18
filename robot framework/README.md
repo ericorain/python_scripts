@@ -7,8 +7,10 @@ Here a couple of scripts using robot framework. I focused on the CLI use and the
 ```diff
 
 + It is possible to the command on a Linux system and testing the answer
-+ Cisco support thanks to pyATS library... but there are very little documentation on the official site and there is no way to send a command since there is no clearly explanation
-+ RENAT is a tool for Robot framework that suports Cisco and IOS devices. Taht should be nice but I was unable to install it (see below).
++ Cisco support thanks to pyATS library
+  * ... but there are very little documentation on the official site and there is no way to send a command since there is no clearly explanation
++ RENAT is a tool for Robot framework that suports Cisco and IOS devices.
+  * That should be nice but I was unable to install it (see below).
 ```
 
 **What I do not like with robot framework**:
@@ -19,9 +21,11 @@ Here a couple of scripts using robot framework. I focused on the CLI use and the
 - Very few examples using SSH
   * we find the same example on the Internet; the one of SSHLibrary
   * on the Internet most of the examples are for Web applications
-- I got "CryptographyDeprecationWarning" messages on a correct test because "cryptography" library is not including a fixe requested 5 months ago; that gives the impression of a deprecated piece of software
+- I got "CryptographyDeprecationWarning" messages on a correct test.
+  * "cryptography" library is not including a fixe requested 5 months ago; that gives the impression of a deprecated piece of software
 - RENAT library has issues:
-  * RENAT installation is unclear, no pip install and "docker pull bachng/renat:latest" gives the following error message: "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?" even though docker deamon is running
+  * RENAT installation is the first problem.
+    * It is unclear, there is no pip install and "docker pull bachng/renat:latest" gives the following error message: "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?" even though docker deamon is running
   * RENAT is designed for Python 2.7
   * RENAT "simple scenario" according to the online documentation:
 ```
