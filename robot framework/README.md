@@ -21,9 +21,9 @@ What I do not like with robot framework:
 
 Installation:
 
-That is the easy part.
+That is the only easy part.
 ```
-[root@linux ~]# pip install robotframework
+[root@linux ~]# **pip install robotframework**
 Collecting robotframework
   Downloading https://files.pythonhosted.org/packages/36/c6/6f89c80ac5a526a091bd383ffdfc64c9a68d9df0c775d4b36f03d8e0ac25/robotframework-3.1.1-py2.py3-none-any.whl (601kB)
      |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 604kB 482kB/s
