@@ -6,3 +6,4 @@ Scripts list:
 - **nornir_napalm_facts_version.py** : Same as previous script but get version value from the facts
 - **nornir_napalm_command_cli_show_version.py** : Sending a command using Napalm using a configuration file (yaml)
 - **nornir_napalm_command_cli_show_version_no_yaml.py** : Sending a commmand using Napalm without configuration file (yaml)
+- **nornir_napalm_command_flask.py** : Displaying a command for 1 device with Flask without external file
