@@ -2,7 +2,8 @@
 
 Here a couple of scripts using robot framework. I focused on the CLI use and the network device automation use of this automation testing tool. The first impression is rather bad.
 
-What I like:
+** What I like**:
++ It is possible to the command on a Linux system and testing the answer
 + Cisco support thanks to pyATS library... but there are very little documentation on the official site and no way to send a command clearly explained
 + RENAT is a tool for Robot framework that suport Cisco and IOS devices.
 Here a "simple scenario" according to the online documentation:
