@@ -4,10 +4,8 @@ Here a couple of scripts using robot framework. I focused on the CLI use and the
 
 **What I like**:
 + It is possible to the command on a Linux system and testing the answer
-+ Cisco support thanks to pyATS library... but there are very little documentation on the official site and no way to send a command clearly explained
-+ RENAT is a tool for Robot framework that suport Cisco and IOS devices. But impossible to install (see below).
-
-
++ Cisco support thanks to pyATS library... but there are very little documentation on the official site and there is no way to send a command since there is no clearly explanation
++ RENAT is a tool for Robot framework that suports Cisco and IOS devices. Taht should be nice but I was unable to install it (see below).
 
 
 **What I do not like with robot framework**:
