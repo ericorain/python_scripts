@@ -8,7 +8,7 @@ What I like:
 Here a "simple scenario" according to the online documentation:
 
 [[https://bachng2017.github.io/RENAT/doc/renat_sample.png]]
-https://bachng2017.github.io/RENAT/doc/renat_sample.png
+![image](https://bachng2017.github.io/RENAT/doc/renat_sample.png)
 
 What I do not like with robot framework:
 - I have to learn a new DSL (again another one...)
