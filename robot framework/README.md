@@ -29,8 +29,6 @@ Collecting robotframework
      |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 604kB 482kB/s
 Installing collected packages: robotframework
 Successfully installed robotframework-3.1.1
-WARNING: You are using pip version 19.1, however version 19.1.1 is available.
-You should consider upgrading via the 'pip install --upgrade pip' command.
 [root@linux ~]#
 ```
 
