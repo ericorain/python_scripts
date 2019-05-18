@@ -3,7 +3,7 @@
 Here a couple of scripts using robot framework. I focused on the CLI use and the network device automation use of this automation testing tool. The first impression is rather bad.
 
 ```diff
-+ What I like:
++ **What I like**:
 ```
 
 + It is possible to the command on a Linux system and testing the answer
