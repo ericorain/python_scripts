@@ -14,13 +14,13 @@ What I do not like with this framework:
 
 **Installation**:
 
-'''
+```
 pip install pyats
-'''
+```
 
 First thing to do is to create a testbed.yaml file that will contain the IP address, login, etc. of the devices:
 
-'''
+```
 testbed:
     name: My_Testbed
 
@@ -49,11 +49,11 @@ devices:
                 protocol: ssh
                 ip: 192.168.0.101
                 port: 22
-'''
+```
 
 Next an example to read data from a Cisco device:
 
-'''
+```
 
 #!/usr/bin/env python3
 
@@ -82,11 +82,11 @@ def main():
 if __name__ == '__main__':
     main()
 
-'''
+```
 
 The result:
 
-'''
+```
 
 (project1) [eorain@centos7 pyats]$ ./pyats_show_ip_int_brief.py
 [2019-05-23 07:18:57,985] +++ R2 logfile /tmp/R2-default-20190523T071857983.log +++
@@ -152,6 +152,5 @@ Ethernet3/6            unassigned      YES NVRAM  administratively down down
 Ethernet3/7            unassigned      YES NVRAM  administratively down down
 (project1) [eorain@centos7 pyats]$
 
-
-'''
+```
 
