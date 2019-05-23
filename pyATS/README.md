@@ -2,12 +2,12 @@
 
 All in all this framework is easy to use. I like it. Too bad it is only for Cisco devices.
 
-What I like:
+**What I like**:
 * Easy to retrieve information and to send commands
 * Execution time is ok
 * Sending configuration is easy
 
-What I do not like with this framework:
+**What I do not like with this framework**:
 * Only for Cisco devices
 * The hostname must match with device name in the yaml file
 * Display unecessary information on the screen while running a command
