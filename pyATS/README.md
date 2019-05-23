@@ -18,7 +18,7 @@ What I do not like with this framework:
 pip install pyats
 ```
 
-First thing to do is to create a testbed.yaml file that will contain the IP address, login, etc. of the devices:
+First thing to do is to create a testbed.yaml file that will contain the IP address, login, etc. of the devices. The name of the devices (here "R1" and "R2") **MUST** be the same as the hostanme of the devices.
 
 ```
 testbed:
