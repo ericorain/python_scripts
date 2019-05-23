@@ -54,7 +54,7 @@ devices:
                 port: 22
 ```
 
-1 - "show ip int brief"
+**1 - "show ip int brief"**
 
 Next an example to read data from a Cisco device:
 
@@ -163,7 +163,7 @@ Ethernet3/7            unassigned      YES NVRAM  administratively down down
 
 As we can see the code is very simple. The annoying issue is that thera are several commands displayed that are no use for the program such as a information text, configuration commands while doing a simple show command (!), "show version" is always displayed on the screen while it is not wanted and "show ip int brief" the command itself is diplayed on the screen twice.
 
-2 - Configuratio on an interface
+**2 - Sending configuration**
 
 Let's send a list of commands to configure a Cisco interface:
 
