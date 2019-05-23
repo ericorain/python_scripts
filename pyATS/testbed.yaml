@@ -1,0 +1,28 @@
+testbed:
+    name: My_Testbed
+
+devices:
+    R1:
+        os: ios
+        type: ios
+        tacacs:
+            username: cisco
+        passwords:
+            tacacs: cisco
+        connections:
+            tacacs:
+                protocol: ssh
+                ip: 192.168.0.100
+                port: 22
+    R2:
+        os: ios
+        type: ios
+        tacacs:
+            username: cisco
+        passwords:
+            tacacs: cisco
+        connections:
+            tacacs:
+                protocol: ssh
+                ip: 192.168.0.101
+                port: 22
