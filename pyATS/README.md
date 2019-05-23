@@ -1,5 +1,7 @@
 # pyATS
 
+All in all this framework is easy to use. I like it. Too bad it is only for Cisco devices.
+
 What I like:
 * Easy to retrieve information and to send commands
 * Execution time is ok
@@ -169,6 +171,7 @@ Let's send a list of commands to configure a Cisco interface:
 >            ip address 198.168.1.2 255.255.255.0
 >            no shut
 
+The second device ("R2") will get an interface configured. Here is the source code in pyATS:
 
 ```
 #!/usr/bin/env python3
@@ -257,4 +260,4 @@ Command send:
 (project1) [eorain@centos7 pyats]$
 ```
 
-Again unecessary text is display. But sending configuration to a Cisco device is quite easy with pyATS.
+Again unecessary text is displayed. But sending configuration to a Cisco device is quite easy with pyATS.
