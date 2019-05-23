@@ -105,7 +105,9 @@ term width 0
 R2#
 [2019-05-23 07:18:59,658] +++ R2: executing command 'show version' +++
 show version
-*[... Remove ...]*
+```
+*[...* *Removed* *...]*
+```
 Configuration register is 0x2102
 
 R2#
