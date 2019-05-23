@@ -161,7 +161,7 @@ Ethernet3/7            unassigned      YES NVRAM  administratively down down
 
 ```
 
-As we can see the code is very simple. The annoying issue is that thera are several commands displayed that are no use for the program such as a information text, configuration commands while doing a simple show command (!), "show version" is always displayed on the screen while it is not wanted and "show ip int brief" the command itself is diplayed on the screen twice.
+As we can see the code is very simple. The annoying issue is that there are several commands displayed that are no use for the program such as a information text, configuration commands while doing a simple show command (!), "show version" is always displayed on the screen while it is not wanted and "show ip int brief" is diplayed on the screen twice.
 
 **2 - Sending configuration**
 
