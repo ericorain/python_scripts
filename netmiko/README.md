@@ -2,10 +2,9 @@
 
 A bunch of examples using netmiko
 
-**Example of script**
+**Example of script: netmiko_show_ip_interface_brief.py**
 
 ```
-
 #!/usr/bin/env python3
 
 # Import Python library
@@ -71,17 +70,16 @@ if __name__ == '__main__':
 
     # Run the function
     my_netmiko_command(sys.argv[1], sys.argv[2], sys.argv[3], tcp_port)
-
 ```
 
-**Usage**
+**Usage:**
 
 ```
 python netmiko_show_ip_interface_brief.py 192.168.0.100 cisco cisco
 ```
 
 
-**Result**
+**Result:**
 
 ```
 d:\>python netmiko_show_ip_interface_brief.py 192.168.0.100 cisco cisco
