@@ -466,7 +466,11 @@ if __name__ == '__main__':
             # Error while writting the file?
             if res:
                 # Yes
-                print("Write error with file " + my_scan.filename)    
+                print("Write error with file " + my_scan.filename)
+
+            else:
+
+                print("Data saved into file " + my_scan.filename)
 
 
 
