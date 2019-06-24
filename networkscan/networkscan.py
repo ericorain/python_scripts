@@ -469,7 +469,7 @@ if __name__ == '__main__':
                 print("Write error with file " + my_scan.filename)
 
             else:
-
+                # No error
                 print("Data saved into file " + my_scan.filename)
 
 
