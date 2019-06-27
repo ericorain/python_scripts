@@ -4,7 +4,7 @@ Networkscan is a fast host scanner written in python. It can be used in command 
 
 The advantages of that program are:
 - it can perform fast pings (thanks to the use of coroutines)
-- it can be used as a command line progrma or as a python library
+- it can be used as a command line program or as a python library
 - it can create a list of IP address hosts as a output for easy IP address manipulation
 - it can create a yaml host inventory compatible with Nornir
 
@@ -85,7 +85,7 @@ Number of hosts found: 7
 (project1) [eorain@centos7 python]$
 ```
 
-### 4 - How to scan a /25 network then save the list of hosts into a text file (quiet mode and redirection of the output into a file)
+### 4 - How to scan a /25 network then to save the list of hosts into a text file (quiet mode and redirection of the output into a file)
 
 > networkscan.py 192.168.0.0/25 -q >inventory.txt
 
@@ -107,7 +107,7 @@ Number of hosts found: 7
 
 ---
 
-Please note that when no file is specified with the parameter "-w" then a "hosts.yaml" file is created by default. With the command "networkscan.py 192.168.0.0/23 -m -w foo.yaml" you do the same as below except that you create a file named "foo.yaml".
+Please note that when no file is specified with the parameter "-w" then a "hosts.yaml" file is created by default. With the command "networkscan.py 192.168.0.0/23 -m -w foo.yaml" you do create a file named "foo.yaml".
 
 ---
 
