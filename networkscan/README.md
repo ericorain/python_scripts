@@ -16,7 +16,6 @@ Networkscan requires python 3 and the following python libraries:
 - asyncio 
 - ipaddress
 - platform
-- subprocess
 - sys
 
 It works on Windows and Linux.
