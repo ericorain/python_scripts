@@ -1,0 +1,6 @@
+---
+device_discovered:
+    username: cisco
+    password: cisco
+    platform: ios
+

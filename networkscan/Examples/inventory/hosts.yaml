@@ -1,0 +1,10 @@
+---
+device1:
+    hostname: 192.168.0.100
+    groups:
+        - device_discovered
+
+device2:
+    hostname: 192.168.0.101
+    groups:
+        - device_discovered
