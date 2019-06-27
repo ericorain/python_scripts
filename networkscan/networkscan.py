@@ -7,8 +7,6 @@ import platform
 import ipaddress
 import asyncio
 
-import time
-
 # Global variable
 my_list_of_tasks = []
 my_tasks = []
@@ -61,9 +59,6 @@ async def ping_loop(mode = 0):
     
     global my_tasks, my_list_of_tasks
 
-    # Display time
-    #print(f"started at {time.strftime('%X')}")
-
     # Start the tasks
     # Wait until both tasks are completed
     # Run all commands
@@ -75,8 +70,6 @@ async def ping_loop(mode = 0):
         for each_coroutine in asyncio.as_completed(each_task_list):
             await each_coroutine
 
-    # Display time
-    #print(f"finished at {time.strftime('%X')}")
 
 # networkscan class
 class Networkscan:
@@ -292,7 +285,7 @@ def print_program_parameters_and_usage():
     \n    -h                   Help \
     \n    -m                   Mute mode (nothing is displayed on screen) \
     \n    -q                   Quiet mode (just the list of hosts found is displayed) \
-    \n    -w [hosts.yaml]      Write a Nornir yaml host file with an optional filename (default name is hosts.yaml)\n \
+    \n    -w [hosts.yaml]      Write a yaml host file with an optional filename (default name is hosts.yaml)\n \
     ")
 
 
@@ -394,20 +387,8 @@ if __name__ == '__main__':
     # First parameter is the network to scan (always)
     my_network = sys.argv[1]
 
-    #print("network: " + my_network)
-    #print("mode: " + str(mode))
-    #print("filename: " + str(filename_to_save))
-    
-
     # Create the object
     my_scan = Networkscan(my_network)
-
-    # Define the network to scan
-    #my_network = "192.168.0.0/28"
-    #my_network = "192.168.0.0/24"
-
-    # Create the object
-    #my_scan = Networkscan(my_network)
 
     # Display additional information? (mode normal)
     if mode == 2:
@@ -472,16 +453,4 @@ if __name__ == '__main__':
                 # No error
                 print("Data saved into file " + my_scan.filename)
 
-
-
-"""
-Results from a /24 with asyncio:
-5.721 seconds
-
-Results from a /24 without asyncio:
-123.679 seconds
-
-Results from a /28 without asyncio:
-4.916 seconds
-"""
 
