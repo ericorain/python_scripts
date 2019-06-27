@@ -3,8 +3,8 @@
 Networkscan is a fast host scanner written in python. It can be used in command line or as a python library.
 
 The advantages of that program are:
-- it can perform fast ping (thanks to the use of coroutines)
-- it can be used as a command line or in python scripts
+- it can perform fast pings (thanks to the use of coroutines)
+- it can be used as a command line progrma or as a python library
 - it can create a list of IP address hosts as a output for easy IP address manipulation
 - it can create a yaml host inventory compatible with Nornir
 
