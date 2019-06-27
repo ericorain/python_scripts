@@ -206,19 +206,20 @@ if __name__ == '__main__':
 
 ### 2 - An advanced script
 
-This script scan a network then it creates a yaml file with the list of hosts found.
+This script scans a network then it creates a yaml file with the list of hosts found.
 
 write_file() method accepts two optional parameters: 
 
 ``` python
-    def write_file(self, file_type = 0, filename = "hosts.yaml"):
+    def write_file(self, file_type=0, filename="hosts.yaml"):
         """ Method to write a file with the list of the detected hosts """
 
         # Input:
         #
         # - file_type (integer, optional): 0, Nornir file (default value)
         #                                  1, Text file as output file
-        # - filename (string, optional): the name of the file to be written ("hosts.yaml" is the default value)
+        # - filename (string, optional): the name of the file to be written ("hosts.yaml"
+        #   is the default value)
         #
         # Ouput:
         # A text file with the list of detected hosts ("hosts.yaml" is the default value)
@@ -289,11 +290,9 @@ Network | /32 | /31 | /30 | /29 | /28 | /27 | /26 | /25 | /24 | /23 | /22
 Networkscan (sec) | 0,184 | 1,178 | 1,163 | 1,213 | 1,232 | 1,411 | 1,951 | 2,23 | 5,104 | 7,055 | 18,196
 Without asyncio (timeout 1 sec) | N/A | 1,136 | 1,115 | 5,485 | 10,194 | 26,852 | 67,258 | 130,334 | 253,168 | 321,908 | 865,858
 
+## What's next with the Nornir yaml file?
 
-
-## What's next with my Nornir yaml file?
-
-When you scan a network you entered that command and get the folling output:
+When you have scanned a network you have typed the entered the following command and you have got that output:
 
 ``` bash
 (project1) [eorain@centos7 python]$ ./networkscan.py 192.168.0.96/28 -w
@@ -310,7 +309,7 @@ Data saved into file hosts.yaml
 (project1) [eorain@centos7 python]$
  ```
 
-The file hosts.yaml is created.
+The file hosts.yaml has been created.
 
 **hosts.yaml**
 ``` yaml
@@ -328,7 +327,7 @@ device2:
 
  ```
 
-After scanning your network and creating a Nornir inventory file ("hosts.yaml") you might wonder what to do next. You can notice that the "hosts.yaml"  does not include the password, login and platform.
+After scanning your network and creating a Nornir inventory file ("hosts.yaml") you might wonder what to do next. You can notice that the "hosts.yaml"  does not include the password, login and platform information.
 
 There are two cases:
 - either all the devices are different devices with eventually different credentials
@@ -366,9 +365,9 @@ device2:
 
 ### b) Same devices and same credentials
 
-If you are in this situation things are easier. You probably noticed that all the devices belongs to the "device_discovered" group. You can create a group file with a reference to that group then to add the missing value to the group file (without change on the "hosts.yaml" file).
+If you are in this situation things are easier. You probably noticed that all the devices belongs to the "device_discovered" group. You can create a group file with a reference to that group then to add the missing value to the group file (with no change on the "hosts.yaml" file).
 
-Here is an example with Cisco IOS equipements:
+Here is an example with Cisco IOS equipments:
 
 **groups.yaml**
 ``` yaml
@@ -433,7 +432,7 @@ You should get that file structure:
 |
 ```
 
-You can then run the program.
+You can then run your Nornir program in python.
 
 ``` bash
 (project1) [eorain@centos7 python]$ ./nornir_arp.py
