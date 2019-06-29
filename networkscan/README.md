@@ -12,7 +12,7 @@ The advantages of that program are:
 
 ## Compatibility
 
-Networkscan requires python 3 and the following python libraries:
+Networkscan requires python 3.7 and the following python libraries:
 - asyncio 
 - ipaddress
 - platform
@@ -24,7 +24,7 @@ It works on Windows and Linux.
 
 ## Installation
 
-*To be completed*
+> pip install networkscan
 
 ---
 
@@ -104,12 +104,6 @@ Number of hosts found: 7
 
 ### 4 - How to scan a /23 network then save the list of hosts into a yaml file compatible with Nornir syntax (mute mode and creation of a yaml file)
 
----
-
-Please note that when no file is specified with the parameter "-w" then a "hosts.yaml" file is created by default. With the command "networkscan.py 192.168.0.0/23 -m -w foo.yaml" you do create a file named "foo.yaml".
-
----
-
 > networkscan.py 192.168.0.0/23 -m -w
 
 ``` bash
@@ -159,6 +153,13 @@ device7:
         - device_discovered
 
 ```
+
+---
+
+Please note that when no file is specified with the parameter "-w" then a "hosts.yaml" file is created by default. With the command "networkscan.py 192.168.0.0/23 -m -w foo.yaml" you do create a file named "foo.yaml".
+
+---
+
 
 ---
 
@@ -427,8 +428,8 @@ You should get that file structure:
 ``` bash
 |--- nornir_arp.py
 |--- inventory
-|Â  Â  --- groups.yaml
-| Â Â  --- hosts.yaml
+|    --- groups.yaml
+|    --- hosts.yaml
 |
 ```
 
