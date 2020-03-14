@@ -51,11 +51,6 @@ def get_csv_header_command(result):
         # Read all commands of the device
         for _ in result[device][1:]:
 
-            # Get command name
-            #cmd = data.name
-
-            #print(cmd)
-
             # For every command the current device number of commands is increased
             current_number_of_commands += 1
 
@@ -73,13 +68,12 @@ def get_csv_header_command(result):
     # By default the list of csv header names is empty
     list_output = []
 
-    # Add csv header names as much as the maximum number of commands found (i.e 4 commands founds = 4 csv headers)
+    # Add csv header names as much as the maximum number of commands found (i.e 4 commands founds = 4 command csv headers)
     for i in range(1,max_number_of_commands+1):
         list_output.append("CMD" + str(i))
 
     # Return a list with the csv header names
     return list_output
-
 
 
 
@@ -97,7 +91,10 @@ def read_csv(csv_full_path, csv_filename):
         with open(csv_full_path) as csv_file:
 
             # Initilization of the dictionary
-            dict_data = {}
+            dict_devices = {}
+
+            # Initilization of the dictionary of the commands
+            dict_commands = {}
 
             # Read the header and specify the delimiter
             csv_reader = csv.reader(csv_file, delimiter=',')
@@ -122,13 +119,12 @@ def read_csv(csv_full_path, csv_filename):
 
                     # Save the content of the csv line into a dictionary
                     # Here is an example of one line of that dictionary:
-                    # {'my_device': {'hostname': '192.168.0.15','port': 22,'username': 'root','password': 'linux','platform': 'linux'}}
-                    #dict = {str(row[0]): {'hostname': str(row[1]),'port': 22,'username': str(row[2]),'password': str(row[3]),'platform': str(row[4])}}
-                    dict_data[str(row[0])] = {'hostname': str(row[1]),'port': 22,'username': str(row[2]),'password': str(row[3]),'platform': str(row[4]),'commands': str(row[5]).splitlines()}
+                    # {'my_device': {'hostname': '192.168.0.1','port': 22,'username': 'cisco','password': 'cisco','platform': 'cisco_ios'}}
+                    dict_devices[str(row[0])] = {'hostname': str(row[1]),'port': 22,'username': str(row[2]),'password': str(row[3]),'platform': str(row[4])}
                     
+                    # Save the content of commands into a dictionary
+                    dict_commands[str(row[0])] = {'commands': str(row[5]).splitlines()}
 
-                    # Then add the dictionary to the list
-                    #list_of_data.append(dict)
 
     except Exception as e:
 
@@ -143,42 +139,29 @@ def read_csv(csv_full_path, csv_filename):
     # Display message
     print("[+] csv file read. [ " + COLOR_OK + "OK" + COLOR_ENDC + " ]")
     
-    # Return a dictionary with the data
-    return dict_data
+    # Return a dictionary with the devices and a dictionary with the commands
+    return (dict_devices, dict_commands)
 
 
 
 # nornir group of tasks function
-def nornir_group_of_tasks(task, dict_of_devices):
+def nornir_group_of_tasks(task, dict_of_commands):
     
     # Global variable used to not print the name of the device by 2 tasks at the same time
     global lock
-    
-    #i = 1
-
-    # Display device name
-    #print(str(task.host) + " ...", end = '')
-    #sys.stdout.write(str(task.host) + " ...")
-
-    #for cmd in dict_of_devices[str(task.host)]['commands']:
-    #    print(cmd)
     
 
     try:
 
         # Get list of commands for the current device
-        list_of_commands = dict_of_devices[str(task.host)]['commands']
+        list_of_commands = dict_of_commands[str(task.host)]['commands']
 
         # Run each command on a device one by one
         for cmd in list_of_commands:
             task.run(task=netmiko_send_command,command_string=cmd, name=cmd)
 
-            #print(i)
-            #i = i + 1
-
         # Message to display
         msg =  COLOR_ENDC + "{:<32}{:^8}".format(str(task.host)[:32],"[ " + COLOR_OK + "OK" + COLOR_ENDC + " ]")
-        #msg =  "{:<32}{:^8}".format(str(task.host)[:32],"[ OK ]")
 
     except Exception:
 
@@ -194,47 +177,27 @@ def nornir_group_of_tasks(task, dict_of_devices):
     
 
 # Main function
-def main(dict_of_devices, csv_output = "", quiet_mode = 0):
+def main(dict_of_devices, dict_of_commands, csv_output = "", quiet_mode = 0):
 
     # Device parameters
-    #h = {'my_device': {'hostname': '192.168.0.15','port': 22,'username': 'root','password': 'linux','platform': 'linux'}}
+    #h = {'my_device': {'hostname': '192.168.0.1','port': 22,'username': 'cisco','password': 'cisco','platform': 'cisco_ios'}}
     h = dict_of_devices
     g = {}
     d = {}
 
-    #print('output = [' + csv_output + ']')
-    #sys.exit(0)
 
     # Initialization of the Nornir object
     nr = InitNornir(inventory={"plugin": "nornir.plugins.inventory.simple.SimpleInventory","options": {"hosts": h, "groups": g, "defaults": d}},logging={"enabled": False})
 
-    # Command to send to the device
-    #my_cli_command = "uname -a"
-    #list_of_commands = ["uname -a","pwd"]
-
     # Display message
     print("[+] Running commands on devices...") 
 
-
     # Runnning the commands with nornir
-    result = nr.run(task=nornir_group_of_tasks, dict_of_devices=h)
+    result = nr.run(task=nornir_group_of_tasks, dict_of_commands=dict_of_commands)
 
-    #print(vars(result))
-    #print(dir(result))
-
-    list_csv_header_command = []
-
-    #list_csv_header_command.append(get_csv_header_command(result))
+    # Get the name of commands for the csc header
     list_csv_header_command = get_csv_header_command(result)
     
-    '''
-    print("." * 80)
-    for cmd in list_csv_header_command:
-        print(cmd)
-    '''
-
-    ##sys.exit(0)
-
     # Display message
     if quiet_mode == 0:
         print("[+] Results of the commands on devices:") 
@@ -245,12 +208,8 @@ def main(dict_of_devices, csv_output = "", quiet_mode = 0):
     # Display the results
     for device in result:
 
-        # Get device name
-        #device_name = str(result[device][0].host)
-
         # Display device name
         if quiet_mode == 0:
-            #print(COLOR_BLUE + device_name + " " + '*' * (79 - len(device_name)) + COLOR_ENDC)
             print(COLOR_BLUE + device + " " + '*' * (79 - len(device)) + COLOR_ENDC)
 
         # Save device name into a dictionary (later saved into the list of results)
@@ -259,7 +218,6 @@ def main(dict_of_devices, csv_output = "", quiet_mode = 0):
         index = 0
 
         # Get each command the appropriated result in a loop
-        #for cmd,res in zip(h[device_name]['commands'],result[device][1:]):
         for data in result[device][1:]:
 
             # Get command name
@@ -344,17 +302,6 @@ if __name__ == '__main__':
 
     # No quiet mode by default
     quiet_mode = 0
-
-    '''
-    # Arguments
-    print("Arguments : " + str(sys.argv[1:]))
-
-    for arg in sys.argv[1:]:
-
-        #arg = arg.lower()
-        print(arg)
-
-    '''
 
     # Optional argument in command line ?
     if (len(sys.argv) > 1):
@@ -457,38 +404,21 @@ if __name__ == '__main__':
                 # Results will be stored into a csv file
                 csv_output = default_output_csv_file
              
-                # leave loop
-                #break
-
             else:
 
                 # No other parameter expected
                 next_param = 0
 
 
-    #print("output: " + str(csv_output))
-
-    #sys.exit(0)
-
-
 
     # Get path of the script
     script_path = sys.path[0]
-    #print(script_path)
-
 
     # Path of the csv file in the same directory as the script
     csv_full_path = os.path.join(script_path, csv_file)
-    
-
-    #print(csv_full_path)
 
     # Read csv file
-    dict_of_devices = read_csv(csv_full_path, csv_file)
-
-
-
+    dict_of_devices, dict_of_commands = read_csv(csv_full_path, csv_file)
 
     # Run main function
-    main(dict_of_devices, csv_output, quiet_mode)
-
+    main(dict_of_devices, dict_of_commands, csv_output, quiet_mode)
