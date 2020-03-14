@@ -292,8 +292,6 @@ def main(dict_of_devices, dict_of_commands, csv_output = "", quiet_mode = 0):
 
 
 
-
-
 # Main function call
 if __name__ == '__main__':
 
