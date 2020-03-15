@@ -1,7 +1,7 @@
 hostname,ip,login,password,platform,commands
-SERVER1,192.168.0.15,root,linux,linux,"whoami
+SERVER1,192.168.0.1,root,password,linux,"whoami
 wc /etc/hosts
 date"
-SERVER2,192.168.0.15,root,linux,linux,"whoami
+SERVER2,192.168.0.2,root,password,linux,"whoami
 wc /etc/hosts
 echo 123"
