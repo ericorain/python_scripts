@@ -79,7 +79,7 @@ def get_csv_header_command(result):
 
 
 # Reading csv file function
-def read_csv(csv_full_path, csv_filename):
+def read_csv(csv_full_path, csv_filename, csv_file_delimiter):
 
     try:
 
@@ -97,8 +97,9 @@ def read_csv(csv_full_path, csv_filename):
             dict_commands = {}
 
             # Read the header and specify the delimiter
-            csv_reader = csv.reader(csv_file, delimiter=',')
-
+            #csv_reader = csv.reader(csv_file, delimiter=',')
+            csv_reader = csv.reader(csv_file, delimiter=csv_file_delimiter)
+            
             # Specify if the first line is read (default = 1 = yes)
             first_line = 1
             
@@ -177,7 +178,7 @@ def nornir_group_of_tasks(task, dict_of_commands):
     
 
 # Main function
-def main(dict_of_devices, dict_of_commands, csv_output = "", quiet_mode = 0):
+def main(dict_of_devices, dict_of_commands, csv_file_delimiter = ",", csv_output = "", quiet_mode = 0):
 
     # Device parameters
     #h = {'my_device': {'hostname': '192.168.0.1','port': 22,'username': 'cisco','password': 'cisco','platform': 'cisco_ios'}}
@@ -263,17 +264,17 @@ def main(dict_of_devices, dict_of_commands, csv_output = "", quiet_mode = 0):
                 # Defining the header
                 fieldnames = ["Device"]# + list_of_commands
 
+                # Add the command headers into the list of csv header
                 for i in list_csv_header_command:
                     fieldnames.append(i)
 
                 # csv file object
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer = csv.DictWriter(csvfile, delimiter=csv_file_delimiter, fieldnames=fieldnames)
 
                 # Saving the headinr into the csv file
                 writer.writeheader()
 
-                # Saving result sinto the csv file
-                #writer.writerow({"Device": "RIEN"})
+                # Saving result sinto the csv file (row by row)
                 for row in list_csv_output:
                     writer.writerow(row)
 
@@ -300,6 +301,9 @@ if __name__ == '__main__':
 
     # No quiet mode by default
     quiet_mode = 0
+
+    # csv files are using comma by default
+    csv_file_delimiter = ','
 
     # Optional argument in command line ?
     if (len(sys.argv) > 1):
@@ -357,6 +361,7 @@ if __name__ == '__main__':
                 print("  -g\t\tGenerate \"" + csv_file + "\" file. Warning: overwrite existing file")
                 print("  -h\t\tHelp")
                 print("  -q\t\tQuiet mode. Results are not displayed")
+                print("  -s\t\tSemicolon csv files are used. Comma csv file are used by default")
                 print("  -v\t\tVersion")
                 print("  -w [output]\tWrite csv output file. \"output\" is the name of the file and is optional. Default filename: \"" + default_output_csv_file + "\"")
 
@@ -379,7 +384,13 @@ if __name__ == '__main__':
 
                 # Quiet mode enabled
                 quiet_mode = 1
-            
+
+            elif arg.lower() == "-s":
+
+                # Semi-colon csv files used for input and optionally for output 
+
+                csv_file_delimiter = ";"
+
             elif next_param !=0:
 
                 # A second parameter is expected
@@ -416,7 +427,7 @@ if __name__ == '__main__':
     csv_full_path = os.path.join(script_path, csv_file)
 
     # Read csv file
-    dict_of_devices, dict_of_commands = read_csv(csv_full_path, csv_file)
+    dict_of_devices, dict_of_commands = read_csv(csv_full_path, csv_file, csv_file_delimiter)
 
     # Run main function
-    main(dict_of_devices, dict_of_commands, csv_output, quiet_mode)
+    main(dict_of_devices, dict_of_commands, csv_file_delimiter, csv_output, quiet_mode)
