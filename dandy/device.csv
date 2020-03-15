@@ -1,8 +1,7 @@
 hostname,ip,login,password,platform,commands
 SERVER1,192.168.0.15,root,linux,linux,"whoami
-pwd
-uname -a"
+wc /etc/hosts
+date"
 SERVER2,192.168.0.15,root,linux,linux,"whoami
-pwd
-uname -a
-ip a"
+wc /etc/hosts
+echo 123"
