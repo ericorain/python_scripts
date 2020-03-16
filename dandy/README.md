@@ -145,19 +145,18 @@ Here is an example of what "output.csv" content could be after running the scrip
 ```
 hostname,ip,login,password,platform,commands
 SERVER1,192.168.0.1,root,password,linux,"whoami
-ls /bin/v*
+wc /etc/hosts
 date"
 SERVER2,192.168.0.2,root,password,linux,"whoami
-ls /bin/v*
+wc /etc/hosts
 echo 123"
-
 ```
 
 **"output.csv" (output)**
 ```
 Device,CMD1,CMD2,CMD3
-SERVER1,root,/userdata/system,Sun Mar 15 15:37:35 CET 2020
-SERVER2,root,/userdata/system,123
+SERVER1,root,        2         4        39 /etc/hosts,Mon Mar 16 08:01:34 CET 2020
+SERVER2,root,        2         4        39 /etc/hosts,123
 ```
 
 ---
