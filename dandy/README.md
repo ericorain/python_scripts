@@ -46,7 +46,7 @@ Options:
 
 ---
 
-Below is an exemple of result you can get with that script. Please note that the parameter "-w" is not mandatory and create a csv output file called "output.csv".
+Below is an exemple of result you can get with that script. Please note that the parameter "-w" is not mandatory and creates a csv output file called "output.csv".
 
 ``` bat
 C:\>dandy.py -w
@@ -160,11 +160,11 @@ SERVER1,root,/userdata/system,Sun Mar 15 15:37:35 CET 2020
 SERVER2,root,/userdata/system,123
 ```
 
+---
 
+## Thanks
 
-## Credits
-
-Credits go to:
+Thanks go to:
 - David Barroso and all the Nornir Team
 - Kirk Byers for Netmiko library
 - Pascal Marcou and Daniel Jouannic (Orange France) for ideas and advices

@@ -391,6 +391,19 @@ if __name__ == '__main__':
 
                 csv_file_delimiter = ";"
 
+            elif arg.lower() == "-easteregg":
+
+                # What dandy means?
+                
+                # Library used to decode
+                from cryptography.fernet import Fernet
+
+                # Display the answer
+                print((Fernet(b'px6pqK6ae5j4UvlALdMSGxKNDe-epQ8WwYAeftGO1G8=').decrypt(b'gAAAAABebx_Q-5oTPWy_kErK1Cy_JlRJ0LpL8muci9K714tlrwGafxWfBm686AQOxm0MvPSzd5jEvQ8vv3LUgRVoifKom7zZ8ukHFrSFg9icX5sQftujzVahxqxeHAsFgC0CLuCGkGEQ')).decode())
+                
+                # Exit program
+                sys.exit(0)
+
             elif next_param !=0:
 
                 # A second parameter is expected
@@ -402,6 +415,7 @@ if __name__ == '__main__':
                     
                     # So the current parameter is the output filename
                     csv_output = str(arg)
+
 
             if arg.lower() == "-w":
 
