@@ -1,6 +1,6 @@
 # Dandy
 
-Dandy is a python script that sends a group a CLI reading commands to network devices. It does not require programing language knowledge.
+Dandy is a python script that sends a group of CLI reading commands to network devices. It does not require programing language knowledge.
 
 The script has not been designed to write configuration into devices (like "conf t" mode commands for Cisco devices); it has just been written for reading commands on network devices (like "show" commands for Cisco/Juniper/etc. devices).
 
