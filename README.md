@@ -4,7 +4,7 @@ Some Python scripts are in the folders.
 
 ---
 
-As a reminders, some interesting commands in Python:
+As a reminder, some interesting commands in Python:
 
 * To display all modules (libraries) already installed:
 ```
